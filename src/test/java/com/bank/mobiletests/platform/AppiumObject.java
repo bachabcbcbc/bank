@@ -12,7 +12,6 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.bank.mobiletests.ProviderDriver;
 
 import io.appium.java_client.AppiumDriver;
@@ -118,16 +117,38 @@ public abstract class AppiumObject extends ProviderDriver<AppiumDriver>{
         }
     }
 
-    public static boolean isVisibleNow(WebDriver driver, By locator) {
+    public boolean isVisibleNow(WebDriver driver, By locator) {
         try {
             List<WebElement> elements = driver.findElements(locator);
-            return !elements.isEmpty() && elements.get(0).isDisplayed();
+            if (elements.isEmpty()) return false;
+    
+            WebElement element = elements.get(0);
+    
+            if (driver.getClass().getName().toLowerCase().contains("android")) {
+                LOGGER.info("android {} isVisibleNow");
+                // Android-specific workaround
+                // Some elements still return false for isDisplayed() even when visible,
+                // so check bounds or visibility attribute if available
+                String visibleAttr = element.getAttribute("visible");
+                String displayedAttr = element.getAttribute("displayed");
+                // String bounds = element.getAttribute("bounds");
+    
+                return ("true".equalsIgnoreCase(visibleAttr)
+                        || "true".equalsIgnoreCase(displayedAttr));
+                    //    && bounds != null && !bounds.equals("[0,0][0,0]");
+            } else {
+                LOGGER.info("ios {} isVisibleNow");
+                // iOS or default Web: rely on standard isDisplayed()
+                return element.isDisplayed();
+            }
+    
         } catch (Exception e) {
             return false;
         }
     }
+    
 
-    public static By getLocator(Target target, WebDriver driver) {
+    public By getLocator(Target target, WebDriver driver) {
         try {
             java.lang.reflect.Field field;
             if (driver.getClass().getName().toLowerCase().contains("android")) {

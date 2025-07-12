@@ -1,15 +1,16 @@
 package com.bank.serenity.cucumber.stepdefs;
 
-import com.bank.mobiletests.ui.e_commerce.tasks.ClickCartTab;
-import com.bank.mobiletests.ui.e_commerce.tasks.ClickCatalogTab;
-import com.bank.mobiletests.ui.e_commerce.tasks.ClickMenuTab;
+import com.bank.mobiletests.ui.e_commerce.tasks.CheckElementVisible;
+import com.bank.mobiletests.ui.e_commerce.tasks.ClickOnElement;
 import com.bank.mobiletests.ui.e_commerce.tasks.SwipeUntilVisible;
-import com.bank.mobiletests.ui.e_commerce.questions.IsProductTitleVisible;
-import com.bank.mobiletests.ui.e_commerce.questions.IsTermsOfServiceVisible;
-import com.bank.mobiletests.ui.e_commerce.questions.GetProductTitleText;
+import com.bank.mobiletests.ui.e_commerce.questions.ElementIsDisplayed;
+import com.bank.mobiletests.ui.e_commerce.questions.ElementIsVisible;
+import com.bank.mobiletests.ui.e_commerce.questions.ElementContainText;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static com.bank.mobiletests.ui.e_commerce.ProductScreen.PRODUCT_TITLE;
 import static com.bank.mobiletests.ui.e_commerce.ProductScreen.TERMS_OF_SERVICE_TEXT;
+import static com.bank.mobiletests.ui.e_commerce.TabScreen.CART_TAB;
 
 import static org.hamcrest.Matchers.is;
 
@@ -22,7 +23,7 @@ public class ECommerceStepDefs {
     public void he_clicks_on_the_cart_tab(String actorName) {
         // First check if product title is visible before clicking cart tab
         theActorCalled(actorName).should(
-            seeThat(IsProductTitleVisible.displayed(), is(true))
+            seeThat(ElementIsVisible.forTarget(PRODUCT_TITLE), is(true))
         );
         
         // Step 2: Scroll to terms of service at bottom
@@ -32,11 +33,11 @@ public class ECommerceStepDefs {
     
         // Step 3: Verify terms of service is visible
         theActorCalled(actorName).should(
-            seeThat(IsTermsOfServiceVisible.displayed(), is(true))
+            seeThat(ElementContainText.forTarget(TERMS_OF_SERVICE_TEXT, "Terms of Service"), is(true))
         );
 
         // Step 4: Then click on cart tab
-        theActorCalled(actorName).attemptsTo(ClickCartTab.now());
+        theActorCalled(actorName).attemptsTo(ClickOnElement.now(CART_TAB));
     }
 
     // @When("{string} checks if product title is visible")

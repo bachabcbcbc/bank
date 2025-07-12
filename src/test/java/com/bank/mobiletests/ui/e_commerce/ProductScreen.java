@@ -16,12 +16,12 @@ public class ProductScreen {
 
     public static final Target PRODUCT_TITLE = ByTarget
             .the("Product title")
-            .locatedForAndroid(By.id("product_title"))
+            .locatedForAndroid(By.xpath("//android.view.ViewGroup[@content-desc='container header']/android.widget.TextView"))
             .locatedForIOS((By.xpath("//XCUIElementTypeStaticText[@name='Products']")));
 
     public static final Target TERMS_OF_SERVICE_TEXT = ByTarget
             .the("Terms of service text")
-            .locatedForAndroid(By.id("terms_of_service"))
+            .locatedForAndroid(By.xpath("//android.view.ViewGroup[@content-desc='products screen']/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.ImageView[3]"))
             .locatedForIOS(By.xpath("//XCUIElementTypeImage[@name='assets/src/assets/images/linkedin.png']"));
 
     // Check if product title is visible

@@ -19,7 +19,7 @@ public class TabScreen {
 
     public static final Target CART_TAB = ByTarget
             .the("Cart tab")
-            .locatedForAndroid(By.xpath("//XCUIElementTypeButton[@name='tab bar option cart']"))
+            .locatedForAndroid(By.xpath("//android.view.ViewGroup[@content-desc='cart badge']"))
             .locatedForIOS((By.xpath("//XCUIElementTypeButton[@name='tab bar option cart']")));
      
     public static final Target MENU_TAB = ByTarget

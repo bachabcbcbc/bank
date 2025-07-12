@@ -31,8 +31,8 @@ public class SwipeUntilVisible extends AppiumObject implements Task {
 
         int swipes = 0;
         try {
-            By locator = AppiumObject.getLocator(target, driver);
-            while (!AppiumObject.isVisibleNow(driver, locator) && swipes < maxSwipes) {
+            By locator = getLocator(target, driver);
+            while (!isVisibleNow(driver, locator) && swipes < maxSwipes) {
                 if (direction == Direction.UP) {
                     swipeUp(actor);
                 } else if (direction == Direction.DOWN) {
@@ -40,7 +40,7 @@ public class SwipeUntilVisible extends AppiumObject implements Task {
                 }
                 swipes++;
             }
-            if (!AppiumObject.isVisibleNow(driver, locator)) {
+            if (!isVisibleNow(driver, locator)) {
                 LOGGER.info("SwipeUntilVisible failed");
                 throw new AssertionError("Element not found after swiping: " + target.getName());
             }
