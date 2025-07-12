@@ -18,7 +18,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
 
-public class StepDefs {
+public class TodosStepDefs {
 	
     @When("{string} notes {string} to his list")
     public void he_notes_to_his_list(String actorName, String item) {
