@@ -21,7 +21,7 @@ public class ProductScreen {
 
     public static final Target TERMS_OF_SERVICE_TEXT = ByTarget
             .the("Terms of service text")
-            .locatedForAndroid(By.xpath("//android.view.ViewGroup[@content-desc='products screen']/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.ImageView[3]"))
+            .locatedForAndroid(By.xpath("//android.view.ViewGroup[@content-desc='products screen']/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.TextView"))
             .locatedForIOS(By.xpath("//XCUIElementTypeImage[@name='assets/src/assets/images/linkedin.png']"));
 
     // Check if product title is visible
