@@ -1,4 +1,4 @@
-@cucumber
+@cucumber @todos
 Feature: Add new todos
 
   Scenario: Adding an item to an empty list in Cucumber

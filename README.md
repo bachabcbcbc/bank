@@ -140,4 +140,23 @@ Or manually navigate to `target/site/serenity/index.html` in your file browser.
 
 ---
 
+## Types of running
+```bash
+# Run all tests
+mvn clean test -Dtest=TestRunner
+
+# Run only features have @money-transfer tag
+mvn clean test -Dtest=TestRunner -Dcucumber.filter.tags="@money-transfer"
+
+# Run only features have @cucumber tag
+mvn clean test -Dtest=TestRunner -Dcucumber.filter.tags="@cucumber"
+
+# Run smoke tests
+mvn clean test -Dtest=TestRunner -Dcucumber.filter.tags="@smoke"
+
+# Run with specific properties
+mvn clean test -Dtest=TestRunner -Dproperties=money-transfer.properties
+```
+---
+
 Happy Testing! 🚀 

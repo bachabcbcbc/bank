@@ -20,7 +20,7 @@ import net.serenitybdd.screenplay.conditions.Check;
 
 public class StepDefs {
 	
-    @When("^\"(.*)\" notes \"(.*)\" to his list$")
+    @When("{string} notes {string} to his list")
     public void he_notes_to_his_list(String actorName, String item) {
         theActorCalled(actorName).attemptsTo(
             Check.whether(actor -> CLOSE_ALERT.resolveFor(actor).isVisible()).andIfSo(Click.on(CLOSE_ALERT))
@@ -28,7 +28,7 @@ public class StepDefs {
         theActorCalled(actorName).attemptsTo(Click.on(ADD_BUTTON));
     }
 
-    @When("^\"(.*)\" creates a new note with title \"(.*)\" and description \"(.*)\"$")
+    @When("{string} creates a new note with title {string} and description {string}")
     public void he_creates_a_new_note_with_title_and_description(String actorName, String title, String description) {
         theActorCalled(actorName).attemptsTo(Click.on(ADD_BUTTON));
         theActorCalled(actorName).attemptsTo(Enter.theValue(title).into(INPUT_TITLE));
@@ -36,7 +36,7 @@ public class StepDefs {
         theActorCalled(actorName).attemptsTo(Click.on(SAVE_BUTTON));
     }
 
-    @Then("^\"(.*)\" should see the note with title \"(.*)\" and description \"(.*)\"$")
+    @Then("{string} should see the note with title {string} and description {string}")
     public void he_should_see_the_note_with_title_and_description(String actorName, String title, String description) {
         Util.sleep(5000);
         theActorCalled(actorName).should(
