@@ -1,4 +1,4 @@
-package com.bidv.serenity.utils;
+package com.bank.serenity.utils;
 
 public class Util {
     public static void sleep(long millis) {

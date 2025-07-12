@@ -1,13 +1,13 @@
-package com.bidv.serenity.cucumber.stepdefs;
+package com.bank.serenity.cucumber.stepdefs;
 
-import static com.bidv.mobiletests.ui.DashboardScreen.CLOSE_ALERT;
-import static com.bidv.mobiletests.ui.DashboardScreen.ADD_BUTTON;
-import static com.bidv.mobiletests.ui.NewNoteScreen.DETAIL_DESCRIPTION;
-import static com.bidv.mobiletests.ui.NewNoteScreen.DETAIL_TITLE;
-import static com.bidv.mobiletests.ui.NewNoteScreen.INPUT_DESCRIPTION;
-import static com.bidv.mobiletests.ui.NewNoteScreen.INPUT_TITLE;
-import static com.bidv.mobiletests.ui.NewNoteScreen.SAVE_BUTTON;
-import com.bidv.serenity.utils.Util;
+import static com.bank.mobiletests.ui.DashboardScreen.CLOSE_ALERT;
+import static com.bank.mobiletests.ui.DashboardScreen.ADD_BUTTON;
+import static com.bank.mobiletests.ui.NewNoteScreen.DETAIL_DESCRIPTION;
+import static com.bank.mobiletests.ui.NewNoteScreen.DETAIL_TITLE;
+import static com.bank.mobiletests.ui.NewNoteScreen.INPUT_DESCRIPTION;
+import static com.bank.mobiletests.ui.NewNoteScreen.INPUT_TITLE;
+import static com.bank.mobiletests.ui.NewNoteScreen.SAVE_BUTTON;
+import com.bank.serenity.utils.Util;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;

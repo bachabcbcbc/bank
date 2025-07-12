@@ -1,4 +1,4 @@
-package com.bidv.mobiletests.platform;
+package com.bank.mobiletests.platform;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Sequence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bidv.mobiletests.ProviderDriver;
+import com.bank.mobiletests.ProviderDriver;
 
 import io.appium.java_client.AppiumDriver;
 import net.serenitybdd.screenplay.Actor;

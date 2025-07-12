@@ -1,6 +1,6 @@
-package com.bidv.serenity.screenplay.features;
+package com.bank.serenity.screenplay.features;
 
-import static com.bidv.mobiletests.ui.DashboardScreen.ADD_BUTTON;
+import static com.bank.mobiletests.ui.DashboardScreen.ADD_BUTTON;
 import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
 
 import org.junit.Before;

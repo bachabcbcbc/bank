@@ -1,4 +1,4 @@
-package com.bidv.serenity.cucumber.stepdefs;
+package com.bank.serenity.cucumber.stepdefs;
 
 import org.openqa.selenium.WebDriver;
 

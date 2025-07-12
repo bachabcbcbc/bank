@@ -1,4 +1,4 @@
-package com.bidv.serenity.cucumber;
+package com.bank.serenity.cucumber;
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.CucumberOptions;

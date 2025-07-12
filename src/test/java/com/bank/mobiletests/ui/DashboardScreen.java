@@ -1,4 +1,4 @@
-package com.bidv.mobiletests.ui;
+package com.bank.mobiletests.ui;
 
 import org.openqa.selenium.By;
 

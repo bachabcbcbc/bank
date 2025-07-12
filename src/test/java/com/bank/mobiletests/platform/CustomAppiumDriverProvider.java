@@ -1,4 +1,4 @@
-package com.bidv.mobiletests.platform;
+package com.bank.mobiletests.platform;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.slf4j.Logger;
@@ -16,7 +16,7 @@ import java.net.URL;
  * Custom Appium driver provider that works with Serenity 4.x and Appium 8.x
  * Uses W3C capabilities format with proper vendor prefixes.
  * 
- * @author bidv
+ * @author bank
  */
 public class CustomAppiumDriverProvider implements DriverProvider {
     

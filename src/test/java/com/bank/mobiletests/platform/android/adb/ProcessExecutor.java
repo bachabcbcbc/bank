@@ -1,4 +1,4 @@
-package com.bidv.mobiletests.platform.android.adb;
+package com.bank.mobiletests.platform.android.adb;
 
 import java.io.BufferedReader;
 import java.io.IOException;

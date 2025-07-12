@@ -1,4 +1,4 @@
-package com.bidv.mobiletests;
+package com.bank.mobiletests;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;

@@ -1,4 +1,4 @@
-package com.bidv.mobiletests.platform.android;
+package com.bank.mobiletests.platform.ios;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.slf4j.Logger;
@@ -10,19 +10,19 @@ import net.thucydides.model.util.EnvironmentVariables;
 import net.thucydides.core.webdriver.SupportedWebDriver;
 
 /**
- * Simple way to extend the Android WebDriver capabilities and customize the driver creation activities.
+ * Simple way to extend the iOS WebDriver capabilities and customise the driver creation activities.
  * <p>
  * 
- * Usage: Add this properties to android.properties
+ * Usage: Add this properties to ios.properties
  * <pre>
- * serenity.extension.packages=com.bidv.mobiletests.platform.android
+ * serenity.extension.packages=com.bank.mobiletests.platform.ios
  * </pre>
  * 
- * @author bidv
+ * @author bank
  */
-public class AndroidCapabilityEnhancer implements BeforeAWebdriverScenario {
+public class IOSCapabilityEnhancer implements BeforeAWebdriverScenario {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AndroidCapabilityEnhancer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(IOSCapabilityEnhancer.class);
 
     @Override
     public MutableCapabilities apply(EnvironmentVariables environmentVariables,
@@ -34,8 +34,8 @@ public class AndroidCapabilityEnhancer implements BeforeAWebdriverScenario {
         MutableCapabilities newCaps = new MutableCapabilities();
         
         // Add platform capabilities with appium: prefix
-        newCaps.setCapability("appium:platformName", "Android");
-        newCaps.setCapability("appium:automationName", "UiAutomator2");
+        newCaps.setCapability("appium:platformName", "IOS");
+        newCaps.setCapability("appium:automationName", "XCUITest");
         
         // Add device capabilities
         String deviceName = environmentVariables.getProperty("appium.deviceName");
@@ -48,25 +48,29 @@ public class AndroidCapabilityEnhancer implements BeforeAWebdriverScenario {
             newCaps.setCapability("appium:platformVersion", platformVersion);
         }
         
+        String udid = environmentVariables.getProperty("appium.udid");
+        if (udid != null) {
+            newCaps.setCapability("appium:udid", udid);
+        }
+        
         // Add app capability
         String app = environmentVariables.getProperty("appium.app");
         if (app != null) {
             newCaps.setCapability("appium:app", app);
         }
         
-        // Add other Android specific capabilities
+        // Add other iOS specific capabilities
         newCaps.setCapability("appium:noReset", true);
         newCaps.setCapability("appium:fullReset", false);
         newCaps.setCapability("appium:newCommandTimeout", 120);
-        newCaps.setCapability("appium:autoGrantPermissions", true);
-        newCaps.setCapability("appium:skipServerInstallation", false);
-        newCaps.setCapability("appium:skipDeviceInitialization", false);
+        newCaps.setCapability("appium:autoAcceptAlerts", true);
+        newCaps.setCapability("appium:autoDismissAlerts", true);
         
         // Add W3C standard capabilities
-        newCaps.setCapability("platformName", "Android");
+        newCaps.setCapability("platformName", "IOS");
         
         // Log the capabilities for debugging
-        LOGGER.info("Android Capabilities: {}", newCaps.asMap());
+        LOGGER.info("iOS Capabilities: {}", newCaps.asMap());
         
         return newCaps;
     }
