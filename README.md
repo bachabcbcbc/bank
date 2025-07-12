@@ -115,6 +115,7 @@ Or use Appium Desktop and set the port to match your properties file.
 ### 8. View the Serenity Report
 After tests finish, open the report:
 ```sh
+mvn serenity:aggregate
 open target/site/serenity/index.html
 ```
 Or manually navigate to `target/site/serenity/index.html` in your file browser.
