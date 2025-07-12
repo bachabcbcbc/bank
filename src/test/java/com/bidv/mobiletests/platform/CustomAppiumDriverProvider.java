@@ -68,6 +68,7 @@ public class CustomAppiumDriverProvider implements DriverProvider {
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.platformVersion", "appium:platformVersion");
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.app", "appium:app");
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.udid", "appium:udid");
+        addCapabilityIfPresent(capabilities, environmentVariables, "appium.bundleId", "appium:bundleId");
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.noReset", "appium:noReset");
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.fullReset", "appium:fullReset");
         addCapabilityIfPresent(capabilities, environmentVariables, "appium.newCommandTimeout", "appium:newCommandTimeout");

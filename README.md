@@ -33,6 +33,11 @@ mvn clean verify -Dproperties=ios.properties
 ```sh
 mvn clean test -Dproperties=android.properties -Dtest=WhenUserStartAppStory
 ```
+### Step 5: Get report
+```sh
+mvn serenity:aggregate
+```
+
 
 
 
