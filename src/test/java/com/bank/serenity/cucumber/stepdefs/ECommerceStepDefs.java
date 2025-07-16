@@ -6,10 +6,10 @@ import com.bank.mobiletests.ui.e_commerce.tasks.SwipeUntilVisible;
 import com.bank.mobiletests.ui.e_commerce.questions.ElementIsDisplayed;
 import com.bank.mobiletests.ui.e_commerce.questions.ElementIsVisible;
 import com.bank.mobiletests.ui.e_commerce.questions.ElementContainText;
+
+import static com.bank.mobiletests.ui.e_commerce.ProductScreen.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static com.bank.mobiletests.ui.e_commerce.ProductScreen.PRODUCT_TITLE;
-import static com.bank.mobiletests.ui.e_commerce.ProductScreen.TERMS_OF_SERVICE_TEXT;
 import static com.bank.mobiletests.ui.e_commerce.TabScreen.CART_TAB;
 import static com.bank.mobiletests.ui.e_commerce.CartScreen.NO_ITEMS_CART_TEXT;
 import static com.bank.mobiletests.ui.e_commerce.CartScreen.EMPTY_CART_TEXT;
@@ -18,12 +18,22 @@ import static org.hamcrest.Matchers.is;
 
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.questions.Text;
 
 public class ECommerceStepDefs {
-	
+
+    @When("{string} open app")
+    public void he_open_app(String actorName) {
+        OnStage.theActorCalled(actorName);
+        theActorCalled(actorName).should(
+                seeThat(ElementIsVisible.forTarget(PRODUCT_TITLE), is(true))
+        );
+    }
     @When("{string} clicks on the cart tab")
     public void he_clicks_on_the_cart_tab(String actorName) {
         // First check if product title is visible before clicking cart tab
+
         theActorCalled(actorName).should(
             seeThat(ElementIsVisible.forTarget(PRODUCT_TITLE), is(true))
         );

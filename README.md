@@ -50,6 +50,9 @@ mvn clean install -DskipTests
   ```sh
   xcrun simctl list devices
   ```
+#### **serenity.conf** (not use the properties file)
+declare devices that tests use. E.g: device named "User1" -> in cucumber test actor named "User1".
+if need more device to run test -> add to this cof file
 
 #### **Example android.properties:**
 ```
@@ -75,7 +78,7 @@ appium.automationName=XCUITest
 ### 5. Start the Appium Server
 - **Android:**
   ```sh
-  appium server -p 4724 --base-path /wd/hub --allow-cors
+  appium server -p 4723 --base-path /wd/hub --allow-cors
   ```
 - **iOS:**
   ```sh
@@ -94,20 +97,20 @@ Or use Appium Desktop and set the port to match your properties file.
 ### 7. Run the Tests
 - **Android Example:**
   ```sh
-  mvn clean test -Dproperties=android.properties
+   mvn test -Dplatform=Android -Dcucumber.filter.tags="@shopping"
   ```
 - **iOS Example:**
   ```sh
-  mvn clean test -Dproperties=ios.properties
+   mvn test -Dplatform=IOS -Dcucumber.filter.tags="@shopping"
   ```
 - **Run individual test:**
   ```sh
-  mvn clean test -Dproperties=android.properties -Dtest=WhenUserStartAppStory
+  mvn clean test -Dplatform=IOS -Dtest=WhenUserStartAppStory
   ```
 - **Run with Cucumber profile:**
   ```sh
-  mvn clean verify -Dproperties=android.properties -Pcucumber
-  mvn clean verify -Dproperties=ios.properties -Pcucumber
+  mvn clean verify -Dplatform=IOS -Pcucumber
+  mvn clean verify -Dplatform=Android -Pcucumber
   ```
 
 ---
